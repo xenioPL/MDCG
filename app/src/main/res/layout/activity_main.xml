@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity"
     android:orientation="vertical">
-
-    <include layout="@layout/content_main" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/navigation_tab_bar_view_pager_main"
@@ -15,10 +10,9 @@
         android:layout_height="wrap_content"/>
 
     <devlight.io.library.ntb.NavigationTabBar
-        android:layout_gravity="bottom"
         android:id="@+id/navigation_tab_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
+        android:layout_height="85dp"
+        android:layout_alignParentBottom="true"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

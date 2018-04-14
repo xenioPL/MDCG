@@ -17,10 +17,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
 public class MainActivity extends AppCompatActivity {
+
+    final int BADGE_SIZE = 25;
+    final int TITLE_SIZE = 34;
+    final float ICON_SIZE_FRACTION = 0.6f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,71 +51,64 @@ public class MainActivity extends AppCompatActivity {
                         container.removeView((View) object);
                     }
 
+                    @NonNull
                     @Override
-                    public Object instantiateItem(final ViewGroup container, final int position) {
+                    public Object instantiateItem(@NonNull final ViewGroup container, final int position) {
                         final View view = LayoutInflater.from(
                                 getBaseContext()).inflate(R.layout.welcome_fragment, null, false);
 
-                        final TextView txtPage = (TextView) view.findViewById(R.id.welcome_text_view);
-                        txtPage.setText(String.format("Page #%d", position));
+                        final TextView txtPage = view.findViewById(R.id.welcome_text_view);
+                        txtPage.setText("Page" +position);
 
                         container.addView(view);
                         return view;
                     }
                 }
-
         );
 
         //nav tab bar icons; from left to right
         ArrayList<Integer> icons = new ArrayList<>();
         for(int i = 0; i < 5; i++)
-            icons.add(android.R.drawable.star_on);
+            icons.add(android.R.drawable.star_big_on);
+
+        //temporary
+        Random random = new Random();
 
         //nav tab bar colors; from left to right
         ArrayList<Integer> colors = new ArrayList<>();
         for(int i = 0; i < 5; i++)
-            colors.add(Color.argb(0, 200, 50, 30));
+            colors.add(Color.argb(255, random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         final NavigationTabBar navigationTabBar = findViewById(R.id.navigation_tab_bar_main);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(0)),
                         colors.get(0)
-                ).title("Heart")
-                        .badgeTitle("NTB")
-                        .build()
+                ).build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(1)),
                         colors.get(1)
-                ).title("Cup")
-                        .badgeTitle("with")
-                        .build()
+                ).build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(2)),
                         colors.get(2)
-                ).title("Diploma")
-                        .badgeTitle("state")
-                        .build()
+                ).build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(3)),
                         colors.get(3)
-                ).title("Flag")
-                        .badgeTitle("icon")
-                        .build()
+                ).build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(4)),
                         colors.get(4)
-                ).title("Medal")
-                        .badgeTitle("777")
-                        .build()
+                ).build()
         );
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(navigationTabBarPager, 2);
@@ -118,18 +116,18 @@ public class MainActivity extends AppCompatActivity {
         navigationTabBar.setTitleMode(NavigationTabBar.TitleMode.ACTIVE);
         navigationTabBar.setBadgeGravity(NavigationTabBar.BadgeGravity.BOTTOM);
         navigationTabBar.setBadgePosition(NavigationTabBar.BadgePosition.CENTER);
-        navigationTabBar.setTypeface("fonts/custom_font.ttf");
+        //navigationTabBar.setTypeface("fonts/custom_font.ttf");
         navigationTabBar.setIsBadged(true);
-        navigationTabBar.setIsTitled(true);
-        navigationTabBar.setIsTinted(true);
-        navigationTabBar.setIsBadgeUseTypeface(true);
+        navigationTabBar.setIsTitled(false); //show title
+        navigationTabBar.setIsTinted(false);
+        //navigationTabBar.setIsBadgeUseTypeface(true);
         navigationTabBar.setBadgeBgColor(Color.RED);
         navigationTabBar.setBadgeTitleColor(Color.WHITE);
         navigationTabBar.setIsSwiped(true);
-        navigationTabBar.setBgColor(Color.BLACK);
-        navigationTabBar.setBadgeSize(20);
-        navigationTabBar.setTitleSize(20);
-        navigationTabBar.setIconSizeFraction(0.5f);
+        navigationTabBar.setBgColor(Color.DKGRAY);
+        navigationTabBar.setBadgeSize(BADGE_SIZE);
+        navigationTabBar.setTitleSize(TITLE_SIZE);
+        navigationTabBar.setIconSizeFraction(ICON_SIZE_FRACTION);
 
     }
 
