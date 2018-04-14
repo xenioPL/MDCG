@@ -2,9 +2,13 @@ package com.basketball.mdgc.basketball;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,48 +31,23 @@ public class MainActivity extends AppCompatActivity {
     final int TITLE_SIZE = 34;
     final float ICON_SIZE_FRACTION = 0.6f;
 
+    final int NUMBER_OF_TABS = 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), NUMBER_OF_TABS);
+
+
 
         ViewPager navigationTabBarPager = findViewById(R.id.navigation_tab_bar_view_pager_main);
-        navigationTabBarPager.setAdapter(
-                new PagerAdapter() {
-                    @Override
-                    public int getCount() {
-                        return 5;
-                    }
-
-                    @Override
-                    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                        return view.equals(object);
-                    }
-
-                    @Override
-                    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-                        container.removeView((View) object);
-                    }
-
-                    @NonNull
-                    @Override
-                    public Object instantiateItem(@NonNull final ViewGroup container, final int position) {
-                        final View view = LayoutInflater.from(
-                                getBaseContext()).inflate(R.layout.welcome_fragment, null, false);
-
-                        final TextView txtPage = view.findViewById(R.id.welcome_text_view);
-                        txtPage.setText("Page" +position);
-
-                        container.addView(view);
-                        return view;
-                    }
-                }
-        );
+        navigationTabBarPager.setAdapter(adapter);
 
         //nav tab bar icons; from left to right
         ArrayList<Integer> icons = new ArrayList<>();
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < NUMBER_OF_TABS; i++)
             icons.add(android.R.drawable.star_big_on);
 
         //temporary
@@ -76,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         //nav tab bar colors; from left to right
         ArrayList<Integer> colors = new ArrayList<>();
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < NUMBER_OF_TABS; i++)
             colors.add(Color.argb(255, random.nextInt(255), random.nextInt(255), random.nextInt(255)));
         final NavigationTabBar navigationTabBar = findViewById(R.id.navigation_tab_bar_main);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
@@ -128,6 +107,35 @@ public class MainActivity extends AppCompatActivity {
         navigationTabBar.setBadgeSize(BADGE_SIZE);
         navigationTabBar.setTitleSize(TITLE_SIZE);
         navigationTabBar.setIconSizeFraction(ICON_SIZE_FRACTION);
+
+    }
+
+    public static class MyAdapter extends FragmentPagerAdapter {
+        final int NUMBER_OF_TABS;
+
+        public MyAdapter(FragmentManager fm, int numberOfTabs) {
+            super(fm);
+            NUMBER_OF_TABS = numberOfTabs;
+        }
+        @Override
+        public int getCount() {
+            return NUMBER_OF_TABS;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if(position == 0) return new SearchGameFragment();
+            if(position == 1) return new SearchGameFragment();
+            if(position == 2) return new SearchGameFragment();
+            if(position == 3) return new SearchGameFragment();
+            if(position == 4) return new SearchGameFragment();
+            return null;
+        }
+        @Override
+        public Parcelable saveState()
+        {
+            return null;
+        }
 
     }
 
