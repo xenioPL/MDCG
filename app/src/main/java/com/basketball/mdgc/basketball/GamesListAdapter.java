@@ -1,7 +1,6 @@
 package com.basketball.mdgc.basketball;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,5 +77,10 @@ public class GamesListAdapter extends BaseAdapter {
         viewHolder.status.setText(match.status);
         viewHolder.playersNumber.setText(String.valueOf(match.playersLimit));
         return view;
+    }
+
+    public void setData(ArrayList<Match> matches){
+        this.matches = matches;
+        notifyDataSetChanged();
     }
 }

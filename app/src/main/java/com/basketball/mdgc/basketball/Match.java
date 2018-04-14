@@ -3,11 +3,11 @@ package com.basketball.mdgc.basketball;
 import java.util.ArrayList;
 
 public class Match {
-    ArrayList<String> players;
+    public ArrayList<String> players;
 
-    int localizationID;
-    int playersLimit;
-    String status;
+    public int localizationID;
+    public int playersLimit;
+    public String status;
 
     public Match(){
 
