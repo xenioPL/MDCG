@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), NUMBER_OF_TABS);
 
-
-
         ViewPager navigationTabBarPager = findViewById(R.id.navigation_tab_bar_view_pager_main);
         navigationTabBarPager.setAdapter(adapter);
 
