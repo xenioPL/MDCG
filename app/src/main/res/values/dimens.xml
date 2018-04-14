@@ -1,3 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="ranking_font_size">25sp</dimen>
+    <dimen name="ranking_menu_font_size">15sp</dimen>
+    <dimen name="ranking_margin_size">10dp</dimen>
 </resources>
