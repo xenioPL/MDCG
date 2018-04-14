@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/welcome_text_view"
         android:text="Welcome"
         android:textSize="30sp"
         android:layout_width="match_parent"
