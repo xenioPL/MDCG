@@ -38,7 +38,7 @@ public class InfoActivity extends AppCompatActivity {
              public void onDataChange(DataSnapshot dataSnapshot) {
                  if(dataSnapshot.hasChild(user.getUid()))
                  {
-                     Intent intent = new Intent(InfoActivity.this, Main3Activity.class); //Po uzupełnieniu zalogowanie
+                     Intent intent = new Intent(InfoActivity.this, MainActivity.class); //Po uzupełnieniu zalogowanie
                      startActivity(intent);
                  }
              }
@@ -62,7 +62,7 @@ public class InfoActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(InfoActivity.this, Main3Activity.class); //Po uzupełnieniu zalogowanie
+                                    Intent intent = new Intent(InfoActivity.this, MainActivity.class); //Po uzupełnieniu zalogowanie
                                     startActivity(intent);
                                 }
                             }
