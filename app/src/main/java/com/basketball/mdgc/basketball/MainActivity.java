@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             if(position == 0) return new SearchGameFragment();
-            if(position == 1) return new SearchGameFragment();
+            if(position == 1) return new RankingFragment();
             if(position == 2) return new SearchGameFragment();
             if(position == 3) return new SearchGameFragment();
             if(position == 4) return new SearchGameFragment();

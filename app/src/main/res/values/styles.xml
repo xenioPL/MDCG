@@ -11,7 +11,20 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
+        <item name="android:spinnerDropDownItemStyle">
+            @style/spinnerDropDownItemStyle
+        </item>
     </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:gravity">center</item>
+    </style>
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
