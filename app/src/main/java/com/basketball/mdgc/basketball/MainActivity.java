@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -124,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position == 0) return new SearchGameFragment();
-            if(position == 1) return new SearchGameFragment();
+            if(position == 0) return new Welcome_fragment();
+            if(position == 1) return new Welcome_fragment();
             if(position == 2) return new SearchGameFragment();
-            if(position == 3) return new SearchGameFragment();
-            if(position == 4) return new SearchGameFragment();
+            if(position == 3) return new Welcome_fragment();
+            if(position == 4) return new Welcome_fragment();
             return null;
         }
         @Override
