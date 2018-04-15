@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,10 +46,10 @@ public class GamesListAdapter extends BaseAdapter {
 
     static class ViewHolder{
         TextView approxLocalization;
-        Button map;
+        ImageButton map;
         TextView status;
         TextView playersNumber;
-        Button detailsArrow;
+        ImageButton detailsArrow;
 
         LinearLayout details;
     }
