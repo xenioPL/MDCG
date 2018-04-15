@@ -1,28 +1,15 @@
 package com.basketball.mdgc.basketball;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -50,47 +37,67 @@ public class MainActivity extends AppCompatActivity {
 
         //nav tab bar icons; from left to right
         ArrayList<Integer> icons = new ArrayList<>();
-        for(int i = 0; i < NUMBER_OF_TABS; i++)
-            icons.add(android.R.drawable.star_big_on);
 
-        //temporary
-        Random random = new Random();
+        icons.add(R.drawable.teamcontur);
+        icons.add(R.drawable.rankingcontur);
+        icons.add(R.drawable.basketballcontur);
+        icons.add(R.drawable.calendar);
+        icons.add(R.drawable.awatar);
+
+        ArrayList<Integer> icons_second = new ArrayList<>();
+
+        icons_second.add(R.drawable.team);
+        icons_second.add(R.drawable.ranking);
+        icons_second.add(R.drawable.basketballconturless);
+        icons_second.add(R.drawable.calendarconturless);
+        icons_second.add(R.drawable.awatarless);
 
         //nav tab bar colors; from left to right
         ArrayList<Integer> colors = new ArrayList<>();
-        for(int i = 0; i < NUMBER_OF_TABS; i++)
-            colors.add(Color.argb(255, random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+        colors.add(Color.argb(255,255, 163, 100));
+        colors.add(Color.argb(255,255, 137, 57));
+        colors.add(Color.argb(255,255, 103, 0));
+        colors.add(Color.argb(255,198, 80, 0));
+        colors.add(Color.argb(255,155, 63, 0));
+
+
         final NavigationTabBar navigationTabBar = findViewById(R.id.navigation_tab_bar_main);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(0)),
                         colors.get(0)
-                ).build()
+                ).selectedIcon(getResources().getDrawable(icons_second.get(0)))
+                        .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(1)),
                         colors.get(1)
-                ).build()
+                ).selectedIcon(getResources().getDrawable(icons_second.get(1)))
+                        .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(2)),
                         colors.get(2)
-                ).build()
+                ).selectedIcon(getResources().getDrawable(icons_second.get(2)))
+                        .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(3)),
                         colors.get(3)
-                ).build()
+                ).selectedIcon(getResources().getDrawable(icons_second.get(3)))
+                        .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(icons.get(4)),
                         colors.get(4)
-                ).build()
+                ).selectedIcon(getResources().getDrawable(icons_second.get(4)))
+                        .build()
+
         );
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(navigationTabBarPager, 2);
@@ -127,11 +134,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+
             if(position == 0) return new Welcome_fragment();
-            if(position == 1) return new Welcome_fragment();
+            if(position == 1) return new RankingFragment();
+
             if(position == 2) return new SearchGameFragment();
-            if(position == 3) return new Welcome_fragment();
-            if(position == 4) return new Welcome_fragment();
+           // if(position == 3) return new Welcome_fragment();
+            //if(position == 4) return new Welcome_fragment();
             return null;
         }
         @Override
