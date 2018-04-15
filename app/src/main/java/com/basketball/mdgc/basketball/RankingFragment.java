@@ -29,13 +29,12 @@ public class RankingFragment extends Fragment{
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                     R.array.ranking_types_array, android.R.layout.simple_spinner_item);
 
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            adapter.setDropDownViewResource( R.layout.spinner_item);
 
             spinner.setAdapter(adapter);
             ArrayList<Player> data = new ArrayList<>();
             data.add(new Player(null, "Jasiek", 450));
-            data.add(new Player(null, "Ania", 421));
-            data.add(new Player(null, "Robert", 392));
             ListView list = view.findViewById(R.id.ranking_list);
             RankingListAdapter rankingListAdapter = new RankingListAdapter(getContext(), data);
             list.setAdapter(rankingListAdapter);
