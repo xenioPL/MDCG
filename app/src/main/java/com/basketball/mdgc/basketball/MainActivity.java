@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
@@ -135,12 +134,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            if(position == 0) return new Welcome_fragment();
+            if(position == 0) return new Fragment();
             if(position == 1) return new RankingFragment();
 
             if(position == 2) return new SearchGameFragment();
-           // if(position == 3) return new Welcome_fragment();
-            //if(position == 4) return new Welcome_fragment();
+            if(position == 3) return new Fragment();
+            if(position == 4) return new PhotoActivity();
             return null;
         }
         @Override

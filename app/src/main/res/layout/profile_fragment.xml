@@ -5,13 +5,15 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-    <ImageView
+
+    <ImageButton
+        android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_gravity="center"
         android:layout_weight="3"
         android:padding="30dp"
-        android:src="@drawable/awatar"
-        android:layout_gravity="center"/>
+        android:src="@drawable/awatar" />
 
     <!--NICK-->
     <LinearLayout

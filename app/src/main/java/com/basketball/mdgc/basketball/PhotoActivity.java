@@ -7,9 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,19 +25,22 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
-public class PhotoActivity extends AppCompatActivity {
+import static android.app.Activity.RESULT_OK;
+
+public class PhotoActivity extends Fragment {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     StorageReference storageRef;
-    ImageView mImageView;
+    ImageButton mImageView;
     FirebaseUser user;
+    View view;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.profile_fragment, container, false);
         storageRef = FirebaseStorage.getInstance().getReference();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
-        mImageView = findViewById(R.id.avatar);
+        mImageView = view.findViewById(R.id.avatar);
         user = FirebaseAuth.getInstance().getCurrentUser();
         StorageReference islandRef = storageRef.child(user.getUid());
 
@@ -54,19 +60,20 @@ public class PhotoActivity extends AppCompatActivity {
         });
 
 
-        Button takePhoto = findViewById(R.id.take_photo);
+        ImageButton takePhoto = view.findViewById(R.id.avatar);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
             }
         });
+        return view;
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
