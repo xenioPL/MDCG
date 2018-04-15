@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             if(position == 1) return new RankingFragment();
             if(position == 2) return new SearchGameFragment();
             if(position == 3) return new Welcome_fragment();
-            if(position == 4) return new Welcome_fragment();
+            if(position == 4) return new Profile_Fragment();
             return null;
         }
         @Override
