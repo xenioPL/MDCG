@@ -7,16 +7,18 @@ public class Match {
 
     public int localizationID;
     public int playersLimit;
+    public String ID;
     public String status;
 
     public Match(){
 
     }
 
-    public Match(ArrayList<String> players, int localizationID, int playersLimit, String status){
+    public Match(ArrayList<String> players, int localizationID, int playersLimit, String status, String Id){
         this.players = players;
         this.localizationID = localizationID;
         this.playersLimit = playersLimit;
         this.status = status;
+        this.ID = Id;
     }
 }
