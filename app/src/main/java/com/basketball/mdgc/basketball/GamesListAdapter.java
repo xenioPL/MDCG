@@ -55,7 +55,7 @@ public class GamesListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
+    public View getView(final int position, View convertView, ViewGroup viewGroup) {
         final View view;
         final ViewHolder viewHolder;
 
@@ -86,7 +86,7 @@ public class GamesListAdapter extends BaseAdapter {
                 public void onClick(View view) {
                     //go to another activity
                     Intent intent = new Intent(context, MatchDetailsActivity.class);
-                    //intent.putExtra("example", "exampleValue");
+                    intent.putExtra("match", matches.get(position).ID);
                     context.startActivity(intent);
 
                 }
