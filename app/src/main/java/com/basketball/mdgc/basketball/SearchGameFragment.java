@@ -1,6 +1,5 @@
 package com.basketball.mdgc.basketball;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +43,7 @@ public class SearchGameFragment extends Fragment {
                 //UIDs.remove(user.getUid());
                 //mDatabase.child("events").child("events2").child("ID").child("players").setValue(UIDs);
             }
+
         }
 
         @Override
@@ -146,7 +145,7 @@ public class SearchGameFragment extends Fragment {
                 EditText playersLimitTextView = view.findViewById(R.id.search_game_edit_text_players_limit);;
                 EditText statusIDTextView = view.findViewById(R.id.search_game_edit_text_status);;
 
-                int localizationID = Integer.parseInt(localizationIDTextView.getText().toString());
+                String localizationID = localizationIDTextView.getText().toString();
                 int playersLimit = Integer.parseInt(playersLimitTextView.getText().toString());
                 String status = statusIDTextView.getText().toString();
 
