@@ -2,42 +2,82 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/games_list_element_approx_localization_text"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:text="zaspa"
-        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/games_list_element_map_button"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/games_list_element_approx_localization_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="zaspa"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/games_list_element_status_text"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:text="status"
-        android:gravity="center"/>
+        <Button
+            android:id="@+id/games_list_element_map_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
-    <TextView
-        android:id="@+id/games_list_element_players_numbers_text"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="y/x"
-        android:gravity="center"/>
+        <TextView
+            android:id="@+id/games_list_element_status_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="status"
+            android:gravity="center"/>
 
-    <Button
-        android:id="@+id/games_list_element_details_arrow_button"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/games_list_element_players_numbers_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="y/x"
+            android:gravity="center"/>
 
+        <Button
+            android:id="@+id/games_list_element_details_arrow_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_list_element_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="6"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/game_details_localization_inside_element"
+            android:text="lokacja"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/game_details_players_limit_inside_element"
+            android:text="limit graczy"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ListView
+            android:id="@+id/game_details_players_list_inside_element"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    
 </LinearLayout>

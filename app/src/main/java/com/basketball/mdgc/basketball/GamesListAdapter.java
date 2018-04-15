@@ -1,12 +1,12 @@
 package com.basketball.mdgc.basketball;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,12 +48,14 @@ public class GamesListAdapter extends BaseAdapter {
         TextView status;
         TextView playersNumber;
         Button detailsArrow;
+
+        LinearLayout details;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        View view;
-        ViewHolder viewHolder;
+        final View view;
+        final ViewHolder viewHolder;
 
         if (convertView == null) {
 
@@ -65,6 +67,16 @@ public class GamesListAdapter extends BaseAdapter {
             viewHolder.status = view.findViewById(R.id.games_list_element_status_text);
             viewHolder.playersNumber = view.findViewById(R.id.games_list_element_players_numbers_text);
             viewHolder.detailsArrow = view.findViewById(R.id.games_list_element_details_arrow_button);
+
+            viewHolder.detailsArrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view2) {
+                    if(view.findViewById(R.id.game_list_element_details_layout).getVisibility() != View.VISIBLE) {
+                        view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.VISIBLE);
+                    } else
+                        view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.GONE);
+                }
+            });
 
             view.setTag(viewHolder);
         } else {
@@ -78,5 +90,10 @@ public class GamesListAdapter extends BaseAdapter {
         viewHolder.status.setText(match.status);
         viewHolder.playersNumber.setText(String.valueOf(match.playersLimit));
         return view;
+    }
+
+    public void setData(ArrayList<Match> matches){
+        this.matches = matches;
+        notifyDataSetChanged();
     }
 }
