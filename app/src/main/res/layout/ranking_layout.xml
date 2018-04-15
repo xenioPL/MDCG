@@ -52,7 +52,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="7"
+        android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_height="0dp"
@@ -84,7 +85,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:src="@drawable/awatar"/>
+                    android:src="@drawable/awatargrey"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -113,7 +114,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:src="@drawable/awatar"/>
+                    android:src="@drawable/awatargrey"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -147,7 +148,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:src="@drawable/awatar"/>
+                    android:src="@drawable/awatargrey"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
