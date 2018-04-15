@@ -24,25 +24,21 @@ public class RankingFragment extends Fragment{
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             view = inflater.inflate(R.layout.ranking_layout, container, false);
 
-            Spinner spinner = (Spinner) view.findViewById(R.id.ranking_types_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
+            Spinner spinner = view.findViewById(R.id.ranking_types_spinner);
+
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                     R.array.ranking_types_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-            spinner.setAdapter(adapter);
-            ArrayList<String> data = new ArrayList<>();
-            data.add("audi");
-            data.add("mercedes");
-            data.add("lambodzini");
-            data.add("audi");
-            data.add("mercedes");
-            data.add("lambodzini");
-            ListView list = view.findViewById(R.id.ranking_list);
-            ArrayAdapter<String> aa = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,data);
 
-            list.setAdapter(aa);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinner.setAdapter(adapter);
+            ArrayList<Player> data = new ArrayList<>();
+            data.add(new Player(null, "Jasiek", 450));
+            data.add(new Player(null, "Ania", 421));
+            data.add(new Player(null, "Robert", 392));
+            ListView list = view.findViewById(R.id.ranking_list);
+            RankingListAdapter rankingListAdapter = new RankingListAdapter(getContext(), data);
+            list.setAdapter(rankingListAdapter);
             return view;
         }
 }

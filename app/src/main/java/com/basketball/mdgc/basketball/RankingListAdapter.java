@@ -72,8 +72,11 @@ public class RankingListAdapter extends BaseAdapter{
         Player player = players.get(position);
 
         viewHolder.nick.setText(String.valueOf(player.nick));
-        viewHolder.portrait.setImageResource(player.portrait);
-        viewHolder.miejsce.setText(String.valueOf(position));
+        if(player.portrait != null)
+            viewHolder.portrait.setImageResource(player.portrait);
+        else
+            viewHolder.portrait.setImageResource(R.drawable.awatargrey);
+        viewHolder.miejsce.setText(String.valueOf(position+4));
         return view;
     }
 

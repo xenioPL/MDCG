@@ -13,38 +13,44 @@
         <TextView
             android:id="@+id/games_list_element_approx_localization_text"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="49dp"
             android:layout_weight="2"
-            android:text="zaspa"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="zaspa" />
 
-        <Button
+        <ImageButton
             android:id="@+id/games_list_element_map_button"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="49dp"
+            android:layout_weight="1"
+            android:scaleType="fitStart"
+            android:src="@drawable/map" />
 
         <TextView
             android:id="@+id/games_list_element_status_text"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="49dp"
             android:layout_weight="2"
-            android:text="status"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="status" />
 
         <TextView
             android:id="@+id/games_list_element_players_numbers_text"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="42dp"
             android:layout_weight="1"
-            android:text="y/x"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="y/x" />
 
-        <Button
+        <ImageButton
             android:id="@+id/games_list_element_details_arrow_button"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@android:drawable/arrow_down_float" />
         
     </LinearLayout>
 
@@ -54,12 +60,16 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="6"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp">
 
         <TextView
             android:id="@+id/game_details_localization_inside_element"
-            android:text="lokacja"
-            android:textSize="30sp"
+            android:text="lokalizacja"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
@@ -67,7 +77,7 @@
         <TextView
             android:id="@+id/game_details_players_limit_inside_element"
             android:text="limit graczy"
-            android:textSize="30sp"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
@@ -80,11 +90,13 @@
 
         <Button
             android:id="@+id/game_details_element_details_join_button"
+            style="@drawable/button_style"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="join to match"
-            android:textSize="25sp"/>
+            android:textSize="15sp"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
     
