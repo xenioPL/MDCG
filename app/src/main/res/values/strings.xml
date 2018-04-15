@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Basketball</string>
+    <string name="app_name">Hoops</string>
     <string name="action_settings">Settings</string>
 
     <string-array name="ranking_types_array">

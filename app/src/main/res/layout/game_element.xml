@@ -38,7 +38,7 @@
         <TextView
             android:id="@+id/games_list_element_players_numbers_text"
             android:layout_width="0dp"
-            android:layout_height="42dp"
+            android:layout_height="49dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="y/x" />
@@ -47,10 +47,10 @@
             android:id="@+id/games_list_element_details_arrow_button"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@android:drawable/arrow_down_float" />
+            android:src="@drawable/down" />
         
     </LinearLayout>
 
