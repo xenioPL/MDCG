@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,7 @@ import java.util.List;
 public class SearchGameFragment extends Fragment {
 
     View view;
-    LinearLayout linearLayout;
+    RelativeLayout linearLayout;
     DatabaseReference mDatabase;
 
     GamesListAdapter gamesListAdapter;
