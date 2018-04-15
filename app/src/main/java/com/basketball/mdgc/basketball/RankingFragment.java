@@ -39,12 +39,6 @@ public class RankingFragment extends Fragment{
             data.add("audi");
             data.add("mercedes");
             data.add("lambodzini");
-            data.add("audi");
-            data.add("mercedes");
-            data.add("lambodzini");
-            data.add("audi");
-            data.add("mercedes");
-            data.add("lambodzini");
             ListView list = view.findViewById(R.id.ranking_list);
             ArrayAdapter<String> aa = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,data);
 

@@ -28,7 +28,7 @@ import java.util.List;
 public class SearchGameFragment extends Fragment {
 
     View view;
-    RelativeLayout linearLayout;
+    LinearLayout linearLayout;
     DatabaseReference mDatabase;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     GamesListAdapter gamesListAdapter;

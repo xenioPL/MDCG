@@ -8,17 +8,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PlayerListAdapter extends BaseAdapter {
+public class RankingListAdapter extends BaseAdapter{
 
     ArrayList<Player> players;
     Context context;
 
-    PlayerListAdapter(Context context, ArrayList<Player> players){
+    RankingListAdapter(Context context, ArrayList<Player> players){
         this.players = players;
         this.context = context;
     }
@@ -45,10 +44,9 @@ public class PlayerListAdapter extends BaseAdapter {
     }
 
     static class ViewHolder{
-        TextView nick;
+        TextView miejsce;
         ImageView portrait;
-        TextView ELO;
-
+        TextView nick;
     }
 
     @Override
@@ -60,22 +58,10 @@ public class PlayerListAdapter extends BaseAdapter {
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(context);
-            view = inflater.inflate(R.layout.player_element, null, false);
-            viewHolder.nick = view.findViewById(R.id.player_element_name);
-            viewHolder.portrait = view.findViewById(R.id.player_element_portrait);
-            viewHolder.ELO = view.findViewById(R.id.player_element_elo);
-
-            Button joinToMatchButton = view.findViewById(R.id.game_details_element_details_join_button);
-            joinToMatchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //go to another activity
-                    Intent intent = new Intent(context, MatchDetailsActivity.class);
-                    //intent.putExtra("example", "exampleValue");
-                    context.startActivity(intent);
-
-                }
-            });
+            view = inflater.inflate(R.layout.ranking_list_element, null, false);
+            viewHolder.miejsce = view.findViewById(R.id.ranking_list_element_place);
+            viewHolder.portrait = view.findViewById(R.id.ranking_list_element_photo);
+            viewHolder.nick = view.findViewById(R.id.ranking_list_element_nick);
 
             view.setTag(viewHolder);
         } else {
@@ -83,11 +69,11 @@ public class PlayerListAdapter extends BaseAdapter {
             view = convertView;
         }
 
-       Player player = players.get(position);
+        Player player = players.get(position);
 
         viewHolder.nick.setText(String.valueOf(player.nick));
         viewHolder.portrait.setImageResource(player.portrait);
-        viewHolder.ELO.setText(String.valueOf(player.ELO));
+        viewHolder.miejsce.setText(String.valueOf(position));
         return view;
     }
 
