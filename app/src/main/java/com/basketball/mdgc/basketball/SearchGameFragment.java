@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,8 +28,44 @@ public class SearchGameFragment extends Fragment {
     View view;
     LinearLayout linearLayout;
     DatabaseReference mDatabase;
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     GamesListAdapter gamesListAdapter;
+
+    private ArrayList<String> players;
+    private ArrayList<String> UIDs;
+    ChildEventListener getAllNames = new ChildEventListener() {
+        @Override
+        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            for(DataSnapshot ds: dataSnapshot.getChildren()){
+                if(UIDs.contains(ds.getValue()))
+                players.add((String) ds.getValue());
+                //UIDs.add(user.getUid());
+                //UIDs.remove(user.getUid());
+                //mDatabase.child("events").child("events2").child("ID").child("players").setValue(UIDs);
+            }
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+        }
+
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+
 
     private ArrayList<Match> lista;
 
@@ -111,8 +149,11 @@ public class SearchGameFragment extends Fragment {
                 int playersLimit = Integer.parseInt(playersLimitTextView.getText().toString());
                 String status = statusIDTextView.getText().toString();
 
-                Match mecz = new Match(new ArrayList<String>(),localizationID,playersLimit,status);
-                mDatabase.child("events").child("events2").child(mDatabase.child("events").push().getKey()).setValue(mecz);
+                Match mecz = new Match(new ArrayList<String>(),localizationID,playersLimit,status,"");
+                mecz.players.add(user.getUid());
+                String ID = mDatabase.child("events").push().getKey();
+                mecz.ID = ID;
+                mDatabase.child("events").child("events2").child(ID).setValue(mecz);
 
                 mDatabase.child("events").addChildEventListener(postListener);
 
