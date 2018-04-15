@@ -10,10 +10,11 @@
         android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center"
         android:layout_weight="3"
-        android:padding="30dp"
-        android:src="@drawable/awatar" />
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/awatargrey" />
 
     <!--NICK-->
     <LinearLayout
@@ -35,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0dp"
@@ -90,18 +91,66 @@
     </LinearLayout>
 
     <!--Badges-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Badges"
+        android:textSize="30dp"
+        android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Badges"
-            android:textSize="30dp"
-            android:gravity="center"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_bronze_ranking"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_silver_ranking"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_locked_ranking"/>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_bronze_game"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_silver_game"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/badge_gold_game"/>
+
+
 
     </LinearLayout>
 
