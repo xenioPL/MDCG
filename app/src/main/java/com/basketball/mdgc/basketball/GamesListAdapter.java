@@ -75,6 +75,8 @@ public class GamesListAdapter extends BaseAdapter {
                 public void onClick(View view2) {
                     if(view.findViewById(R.id.game_list_element_details_layout).getVisibility() != View.VISIBLE) {
                         view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.VISIBLE);
+                        ((TextView)view.findViewById(R.id.game_details_localization_inside_element))
+                                .setText("Localization: " +matches.get(position).localizationID);
                     } else
                         view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.GONE);
                 }
@@ -87,6 +89,8 @@ public class GamesListAdapter extends BaseAdapter {
                     //go to another activity
                     Intent intent = new Intent(context, MatchDetailsActivity.class);
                     intent.putExtra("match", matches.get(position).ID);
+                    intent.putExtra("localization", matches.get(position).localizationID);
+                    intent.putExtra("status", matches.get(position).status);
                     context.startActivity(intent);
 
                 }
@@ -102,7 +106,7 @@ public class GamesListAdapter extends BaseAdapter {
 
         viewHolder.approxLocalization.setText(String.valueOf(match.localizationID));
         viewHolder.status.setText(match.status);
-        viewHolder.playersNumber.setText(String.valueOf(match.playersLimit));
+        viewHolder.playersNumber.setText("1/"+match.playersLimit);
         return view;
     }
 

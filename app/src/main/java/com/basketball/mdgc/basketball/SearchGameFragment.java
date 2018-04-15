@@ -33,42 +33,6 @@ public class SearchGameFragment extends Fragment {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     GamesListAdapter gamesListAdapter;
 
-    private ArrayList<String> players;
-    private ArrayList<String> UIDs;
-    ChildEventListener getAllNames = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            for(DataSnapshot ds: dataSnapshot.getChildren()){
-                if(UIDs.contains(ds.getValue()))
-                players.add((String) ds.getValue());
-                //UIDs.add(user.getUid());
-                //UIDs.remove(user.getUid());
-                //mDatabase.child("events").child("events2").child("ID").child("players").setValue(UIDs);
-            }
-        }
-
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-        }
-
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-    };
-
-
     private ArrayList<Match> lista;
 
     ChildEventListener postListener = new ChildEventListener() {
@@ -146,7 +110,7 @@ public class SearchGameFragment extends Fragment {
                 EditText playersLimitTextView = view.findViewById(R.id.search_game_edit_text_players_limit);;
                 EditText statusIDTextView = view.findViewById(R.id.search_game_edit_text_status);;
 
-                int localizationID = Integer.parseInt(localizationIDTextView.getText().toString());
+                String localizationID = localizationIDTextView.getText().toString();
                 int playersLimit = Integer.parseInt(playersLimitTextView.getText().toString());
                 String status = statusIDTextView.getText().toString();
 

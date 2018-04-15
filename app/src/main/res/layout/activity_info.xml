@@ -29,8 +29,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="SET" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="187dp"
+        android:background="#FFA364"
+        android:text="Set name"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>

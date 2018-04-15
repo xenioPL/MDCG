@@ -65,18 +65,6 @@ public class PlayerListAdapter extends BaseAdapter {
             viewHolder.portrait = view.findViewById(R.id.player_element_portrait);
             viewHolder.ELO = view.findViewById(R.id.player_element_elo);
 
-            Button joinToMatchButton = view.findViewById(R.id.game_details_element_details_join_button);
-            joinToMatchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //go to another activity
-                    Intent intent = new Intent(context, MatchDetailsActivity.class);
-                    //intent.putExtra("example", "exampleValue");
-                    context.startActivity(intent);
-
-                }
-            });
-
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

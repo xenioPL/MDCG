@@ -3,35 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageButton
-        android:id="@+id/avatar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/awatargrey" />
-
-    <!--NICK-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/avatar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="3"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:src="@drawable/awatargrey" />
 
         <TextView
             android:id="@+id/profile_nickname"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="7"
             android:layout_height="wrap_content"
             android:text="Nick"
             android:textSize="30dp"
-            android:gravity="center"/>
+            android:layout_gravity="center"
+            android:textAlignment="center" />
 
     </LinearLayout>
+
+
+    <!--NICK-->
 
     <LinearLayout
         android:layout_width="match_parent"

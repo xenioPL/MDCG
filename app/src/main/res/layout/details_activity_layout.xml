@@ -1,43 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/game_details_element_localization"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="gdzie?"
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/game_details_element_status"
-        app:layout_constraintVertical_weight="1" />
-
-    <TextView
-        android:id="@+id/game_details_element_status"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="status?"
-        android:textSize="30sp"
-        app:layout_constraintVertical_weight="1" />
-
-    <Button
-        android:id="@+id/game_details_element_left"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="left"
-        app:layout_constraintVertical_weight="1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="455dp" />
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/map"/>
+
+        <TextView
+            android:id="@+id/details_activity_localization_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@android:drawable/ic_menu_edit" />
+
+        <TextView
+            android:id="@+id/details_activity_status_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/game_details_element_list_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/game_details_element_join_left"
+        android:layout_weight="6"
+        app:layout_constraintBottom_toTopOf="@+id/game_details_element_left"
         app:layout_constraintTop_toBottomOf="@+id/game_details_element_localization"
         app:layout_constraintVertical_weight="2"
         tools:layout_editor_absoluteX="0dp" />
 
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/game_details_element_left"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="left" />
+
+</LinearLayout>

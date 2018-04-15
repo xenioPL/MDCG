@@ -22,7 +22,9 @@
             android:layout_weight="1"
             android:text="Casual"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/search_game_competetive_button"
@@ -32,7 +34,9 @@
             android:layout_weight="1"
             android:text="Competetive"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 
@@ -42,9 +46,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
-        android:text="Create game!"
+        android:text="Create a game!"
         android:textAllCaps="false"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:background="#FF6600"
+        android:textColor="#FFFFFF"/>
 
     <LinearLayout
         android:id="@+id/make_game_view"
@@ -84,7 +90,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Limit graczy"
+                android:text="Players limit"
                 android:textSize="30sp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -129,7 +135,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Create game!" />
+            android:text="Create!"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 

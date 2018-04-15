@@ -29,7 +29,9 @@
             android:layout_weight="1"
             android:text="week"
             android:textSize="@dimen/ranking_menu_font_size"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
         <Button
             android:id="@+id/ranking_time_mooth"
             android:layout_width="0dp"
@@ -37,7 +39,9 @@
             android:layout_weight="1"
             android:text="month"
             android:textSize="@dimen/ranking_menu_font_size"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
         <Button
             android:id="@+id/ranking_time_all"
             android:layout_width="0dp"
@@ -45,7 +49,9 @@
             android:layout_weight="1"
             android:text="all"
             android:textSize="@dimen/ranking_menu_font_size"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:background="#FFA364"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
     <!--ranking places-->
 
