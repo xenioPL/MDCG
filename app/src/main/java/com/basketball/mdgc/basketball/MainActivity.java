@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         icons_second.add(R.drawable.team);
         icons_second.add(R.drawable.ranking);
+
         icons_second.add(R.drawable.basketball);
+
         icons_second.add(R.drawable.calendarconturless);
         icons_second.add(R.drawable.awatarless);
 
