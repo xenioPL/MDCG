@@ -30,6 +30,7 @@ public class SearchGameFragment extends Fragment {
     GamesListAdapter gamesListAdapter;
 
     private ArrayList<Match> lista;
+
     ChildEventListener postListener = new ChildEventListener() {
 
         @Override
@@ -97,6 +98,8 @@ public class SearchGameFragment extends Fragment {
         });
 
         Button submitCreateGameButton = view.findViewById(R.id.search_game_create_game);
+
+
         submitCreateGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
