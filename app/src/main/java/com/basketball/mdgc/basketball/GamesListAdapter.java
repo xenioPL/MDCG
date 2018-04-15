@@ -1,6 +1,7 @@
 package com.basketball.mdgc.basketball;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,18 @@ public class GamesListAdapter extends BaseAdapter {
                         view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.VISIBLE);
                     } else
                         view.findViewById(R.id.game_list_element_details_layout).setVisibility(View.GONE);
+                }
+            });
+
+            Button joinToMatchButton = view.findViewById(R.id.game_details_element_details_join_button);
+            joinToMatchButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //go to another activity
+                    Intent intent = new Intent(context, MatchDetailsActivity.class);
+                    //intent.putExtra("example", "exampleValue");
+                    context.startActivity(intent);
+
                 }
             });
 

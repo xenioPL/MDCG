@@ -1,5 +1,6 @@
 package com.basketball.mdgc.basketball;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -77,7 +78,6 @@ public class SearchGameFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ListView listView = view.findViewById(R.id.search_game_list_view);
-
 
         lista = new ArrayList<>();
         gamesListAdapter = new GamesListAdapter(getContext(), new ArrayList<Match>());
